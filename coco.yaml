@@ -1,1 +1,2 @@
 nc: 2
+classes: ['immature', 'mature']
