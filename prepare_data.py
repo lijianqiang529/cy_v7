@@ -34,8 +34,8 @@ def convert(size, box):
     return (x,y,w,h)
 
 def convert_annotation(image_id):
-    in_file = open('VOCdevkit/VOC2007/Annotations/%s.xml' %image_id)
-    out_file = open('VOCdevkit/VOC2007/YOLOLabels/%s.txt' %image_id, 'w')
+    in_file = open('F:/Sampling_photos/VOCdevkit/VOC2007/Annotations/%s.xml' %image_id)
+    out_file = open('F:/Sampling_photos/VOCdevkit/VOC2007/YOLOLabels/%s.txt' %image_id, 'w')
     tree = ET.parse(in_file)
     root = tree.getroot()
     size = root.find('size')
@@ -57,14 +57,16 @@ def convert_annotation(image_id):
 
 random.seed(11)
 wd = os.getcwd()
-wd = os.getcwd()
-data_base_dir = os.path.join(wd, "VOCdevkit/")
+
+data_base_dir = "F:/Sampling_photos/VOCdevkit"
+# data_base_dir = os.path.join(wd, "VOCdevkit/")
 if not os.path.isdir(data_base_dir):
     os.mkdir(data_base_dir)
 work_sapce_dir = os.path.join(data_base_dir, "VOC2007/")
 if not os.path.isdir(work_sapce_dir):
     os.mkdir(work_sapce_dir)
 annotation_dir = os.path.join(work_sapce_dir, "Annotations/")
+print(annotation_dir)
 if not os.path.isdir(annotation_dir):
         os.mkdir(annotation_dir)
 clear_hidden_files(annotation_dir)
@@ -101,17 +103,17 @@ if not os.path.isdir(yolov7_labels_test_dir):
         os.mkdir(yolov7_labels_test_dir)
 clear_hidden_files(yolov7_labels_test_dir)
 
-train_file = open(os.path.join(wd, "yolov7_train.txt"), 'w')
-test_file = open(os.path.join(wd, "yolov7_val.txt"), 'w')
+train_file = open(os.path.join(data_base_dir, "yolov7_train.txt"), 'w')
+test_file = open(os.path.join(data_base_dir, "yolov7_val.txt"), 'w')
 train_file.close()
 test_file.close()
-train_file = open(os.path.join(wd, "yolov7_train.txt"), 'a')
-test_file = open(os.path.join(wd, "yolov7_val.txt"), 'a')
+train_file = open(os.path.join(data_base_dir, "yolov7_train.txt"), 'a')
+test_file = open(os.path.join(data_base_dir, "yolov7_val.txt"), 'a')
 list_imgs = os.listdir(image_dir)   # list image files
 probo = random.randint(1, 100)
 print("Probobility: %d" % probo)
 for i in range(0, len(list_imgs)):
-    path = os.path.join(image_dir,list_imgs[i])
+    path = os.path.join(image_dir, list_imgs[i])
     if os.path.isfile(path):
         image_path = image_dir + list_imgs[i]
         voc_path = list_imgs[i]
