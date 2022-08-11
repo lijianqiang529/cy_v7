@@ -1,4 +1,5 @@
 # COCO 2017 dataset http://cocodataset.org
+#第 8、9行改图片路径
 
 # download command/URL (optional)
 #download: bash ./scripts/get_coco.sh
@@ -9,7 +10,7 @@ val: F:/Sampling_photos/VOCdevkit/images/val/  # 5000 images
 #test: ./coco/test-dev2017.txt  # 20288 of 40670 images, submit to https://competitions.codalab.org/competitions/20794
 
 # number of classes
-nc: 2
+nc: 1
 
 # class names
-names: [ 'immature', 'mature']
+names: [ 'cluster']
